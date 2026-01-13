@@ -17,5 +17,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./CI-CD-Pipeline-for-a-Static-Website-main
+          publish_dir: CI-CD-Pipeline-for-a-Static-Website-main
 
