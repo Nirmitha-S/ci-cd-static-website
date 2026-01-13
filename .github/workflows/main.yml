@@ -1,4 +1,4 @@
-name: Deploy Static Website to GitHub Pages
+name: Deploy Static Website
 
 on:
   push:
@@ -10,13 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+
+      - name: Copy website to root
+        run: |
+          mkdir site
+          cp -r CI-CD-Pipeline-for-a-Static-Website-main/* site/
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./CI-CD-Pipeline-for-a-Static-Website-main
+          publish_dir: ./site
 
 
